@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1011084359120",
+    "project_id": "walktheworld-fe8ac",
+    "storage_bucket": "walktheworld-fe8ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011084359120:android:33e92b731cf14c587df5d5",
+        "android_client_info": {
+          "package_name": "com.jorge_dev.wtw_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAb9h0IhJVOU6_m88NX1_3H_rwudr1PiYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
