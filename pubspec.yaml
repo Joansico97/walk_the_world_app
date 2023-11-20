@@ -49,7 +49,6 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  generate: true
 
   fonts:
     - family: Lato
@@ -74,3 +73,21 @@ flutter_intl:
 
 flutter_gen:
   output: lib/gen
+
+flutter_launcher_icons:
+  android: 'launcher_icon'
+  ios: true
+  image_path: 'assets/images/app_icon.jpeg'
+  adaptive_icon_background: 'assets/images/app_icon.jpeg'
+  min_sdk_android: 21
+
+flutter_native_splash:
+  color: '#9FC3E7'
+  image: assets/images/app_icon.jpeg
+  color_dark: '#9FC3E7'
+  image_dark: assets/images/app_icon.jpeg
+  android_12:
+    image: assets/images/app_icon.jpeg
+    icon_background_color: '#9FC3E7'
+    image_dark: assets/images/app_icon.jpeg
+    icon_background_color_dark: '#9FC3E7'

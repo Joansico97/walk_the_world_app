@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wtw_app/gen/fonts.gen.dart';
 
-const seedColor = Colors.blue;
+const seedColor = Color(0xFF264653);
 
 class AppTheme {
   final bool isDarkmode;
@@ -8,7 +9,7 @@ class AppTheme {
   AppTheme({required this.isDarkmode});
 
   ThemeData getTheme() => ThemeData(
-        // fontFamily: FontFamily.manrope,
+        fontFamily: FontFamily.lato,
         useMaterial3: true,
         scaffoldBackgroundColor: isDarkmode ? Colors.black : Colors.white,
         colorSchemeSeed: seedColor,
