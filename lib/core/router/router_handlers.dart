@@ -1,7 +1,7 @@
 part of 'router_config.dart';
 
 Widget _homeHandler(BuildContext context, GoRouterState state) {
-  return Container();
+  return const HomePage();
 }
 
 Widget _loginHandler(BuildContext context, GoRouterState state) {
