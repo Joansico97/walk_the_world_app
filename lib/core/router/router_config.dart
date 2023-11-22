@@ -17,16 +17,19 @@ final _appRouter = GoRouter(
   routes: [
     GoRoute(
       path: RoutesNames.home,
+      name: RoutesNames.home,
       parentNavigatorKey: rootNavigatorKey,
       builder: _homeHandler,
     ),
     GoRoute(
       path: RoutesNames.login,
+      name: RoutesNames.login,
       parentNavigatorKey: rootNavigatorKey,
       builder: _loginHandler,
     ),
     GoRoute(
       path: RoutesNames.register,
+      name: RoutesNames.register,
       parentNavigatorKey: rootNavigatorKey,
       builder: _registerhHandler,
     ),

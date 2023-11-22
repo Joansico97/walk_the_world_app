@@ -5,9 +5,9 @@ Widget _homeHandler(BuildContext context, GoRouterState state) {
 }
 
 Widget _loginHandler(BuildContext context, GoRouterState state) {
-  return Container();
+  return const LoginPage();
 }
 
 Widget _registerhHandler(BuildContext context, GoRouterState state) {
-  return Container();
+  return const RegisterPage();
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
 import 'package:wtw_app/gen/assets.gen.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
@@ -12,7 +10,6 @@ class HomeViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.watch(appRouterProvider);
     return Container(
       decoration: BoxDecoration(
         color: Colors.black,
@@ -27,17 +24,7 @@ class HomeViewMobile extends ConsumerWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async => router.pushNamed(RoutesNames.home),
-          elevation: 0,
-          tooltip: 'Ir al inicio',
-          backgroundColor: AppColors.primary,
-          child: const Icon(
-            PhosphorIconsBold.house,
-            color: AppColors.typography,
-            size: 32,
-          ),
-        ),
+        floatingActionButton: const AppFloatingButton(),
         appBar: CustomAppBar(
           context: context,
           title: '',

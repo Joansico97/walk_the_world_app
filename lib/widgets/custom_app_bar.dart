@@ -32,13 +32,14 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
               : Container(
                   padding: size.all(context, .01),
                   decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(.1),
-                    borderRadius: size.borderRadius(context, .01),
+                    color: AppColors.primary.withOpacity(.8),
+                    borderRadius: size.borderRadius(context, .03),
                   ),
                   child: IconButton(
                     onPressed: () => router.pop(),
                     icon: const Icon(
-                      PhosphorIconsRegular.arrowLeft,
+                      PhosphorIconsBold.arrowLeft,
+                      color: AppColors.typography,
                     ),
                   ),
                 ),

@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
 
-class HomeBody extends StatelessWidget {
+class HomeBody extends ConsumerWidget {
   const HomeBody({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(appRouterProvider);
     return Padding(
       padding: size.horizontal(context, .1),
       child: Column(
@@ -58,7 +62,7 @@ class HomeBody extends StatelessWidget {
             width: size.fullWidth(context),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.5),
+              color: Colors.white.withOpacity(.4),
               borderRadius: size.borderRadius(context, .1),
             ),
             child: TextFormField(
@@ -91,12 +95,14 @@ class HomeBody extends StatelessWidget {
                 const Spacer(),
                 HomeButton(
                   label: 'Todas las rutas',
-                  onTap: () {},
+                  onTap: () async => router.push(RoutesNames.register),
+                  icon: PhosphorIconsBold.footprints,
                 ),
                 SizedBox(width: size.width(context, .15)),
                 HomeButton(
                   label: 'Cerca de ti',
                   onTap: () {},
+                  icon: PhosphorIconsBold.navigationArrow,
                 ),
                 const Spacer(),
               ],
