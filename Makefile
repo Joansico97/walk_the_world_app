@@ -8,6 +8,10 @@ gen:
 	@echo "╠ Running generator..."
 	flutter packages pub run build_runner build --delete-conflicting-outputs
 
+gen_l10n:
+	@echo "╠ Generating translations..."
+	flutter pub run intl_utils:generate
+
 fix_gen:
 	@echo "╠ Fixing gen..."
 	mkdir ./.dart_tool/flutter_gen
