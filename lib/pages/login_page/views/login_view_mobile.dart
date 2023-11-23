@@ -120,7 +120,7 @@ class LoginViewMobile extends ConsumerWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

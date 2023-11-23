@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
+import 'package:wtw_app/pages/home_page/provider/home_provider.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
 
 class HomeBody extends ConsumerWidget {
@@ -13,6 +14,8 @@ class HomeBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    final state = ref.watch(homeProvider);
+    final notifier = ref.watch(homeProvider.notifier);
     return Padding(
       padding: size.horizontal(context, .1),
       child: Column(
@@ -60,14 +63,16 @@ class HomeBody extends ConsumerWidget {
           Container(
             height: size.height(context, .07),
             width: size.fullWidth(context),
+            padding: size.horizontal(context, .02),
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.4),
+              color: AppColors.backgoundWhite.withOpacity(.5),
               borderRadius: size.borderRadius(context, .1),
             ),
             child: TextFormField(
+              controller: notifier.searchConroller,
               style: AppStyles.heading2.copyWith(
-                color: AppColors.typography,
+                color: AppColors.primary,
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,
@@ -77,37 +82,56 @@ class HomeBody extends ConsumerWidget {
                 focusedErrorBorder: InputBorder.none,
                 prefixIcon: const Icon(
                   Icons.search,
-                  color: AppColors.typography,
+                  color: AppColors.primary,
                 ),
+                suffixIcon: state.isSearching
+                    ? IconButton(
+                        onPressed: notifier.cleanSearch,
+                        icon: const Icon(
+                          PhosphorIconsBold.x,
+                          color: AppColors.primary,
+                          size: 20,
+                        ),
+                      )
+                    : null,
                 hintText: 'Elige tu ciudad',
                 hintStyle: AppStyles.heading2.copyWith(
-                  color: AppColors.typography,
+                  color: AppColors.primary,
                 ),
               ),
+              onChanged: (value) => notifier.onSearch(value),
             ),
           ),
           SizedBox(height: size.height(context, .05)),
-          SizedBox(
-            width: size.fullWidth(context),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Spacer(),
-                HomeButton(
-                  label: 'Todas las rutas',
-                  onTap: () async => router.push(RoutesNames.register),
-                  icon: PhosphorIconsBold.footprints,
+          state.isSearching
+              ? Text(
+                  notifier.searchConroller.text,
+                  style: AppStyles.body1.copyWith(
+                    color: AppColors.typography,
+                    fontWeight: FontWeight.w700,
+                  ),
+                )
+              : SizedBox(
+                  width: size.fullWidth(context),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Spacer(),
+                      HomeButton(
+                        label: 'Todas las rutas',
+                        onTap: () async => router.push(RoutesNames.register),
+                        icon: PhosphorIconsBold.footprints,
+                      ),
+                      SizedBox(width: size.width(context, .15)),
+                      HomeButton(
+                        label: 'Cerca de ti',
+                        onTap: () {},
+                        icon: PhosphorIconsBold.navigationArrow,
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
                 ),
-                SizedBox(width: size.width(context, .15)),
-                HomeButton(
-                  label: 'Cerca de ti',
-                  onTap: () {},
-                  icon: PhosphorIconsBold.navigationArrow,
-                ),
-                const Spacer(),
-              ],
-            ),
-          ),
         ],
       ),
     );

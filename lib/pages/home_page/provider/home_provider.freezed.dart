@@ -21,6 +21,7 @@ HomePageModel _$HomePageModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HomePageModel {
   bool get isCharging => throw _privateConstructorUsedError;
+  bool get isSearching => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $HomePageModelCopyWith<$Res> {
           HomePageModel value, $Res Function(HomePageModel) then) =
       _$HomePageModelCopyWithImpl<$Res, HomePageModel>;
   @useResult
-  $Res call({bool isCharging});
+  $Res call({bool isCharging, bool isSearching});
 }
 
 /// @nodoc
@@ -51,11 +52,16 @@ class _$HomePageModelCopyWithImpl<$Res, $Val extends HomePageModel>
   @override
   $Res call({
     Object? isCharging = null,
+    Object? isSearching = null,
   }) {
     return _then(_value.copyWith(
       isCharging: null == isCharging
           ? _value.isCharging
           : isCharging // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearching: null == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -69,7 +75,7 @@ abstract class _$$HomePageModelImplCopyWith<$Res>
       __$$HomePageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isCharging});
+  $Res call({bool isCharging, bool isSearching});
 }
 
 /// @nodoc
@@ -84,11 +90,16 @@ class __$$HomePageModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isCharging = null,
+    Object? isSearching = null,
   }) {
     return _then(_$HomePageModelImpl(
       isCharging: null == isCharging
           ? _value.isCharging
           : isCharging // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSearching: null == isSearching
+          ? _value.isSearching
+          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -97,17 +108,20 @@ class __$$HomePageModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$HomePageModelImpl implements _HomePageModel {
-  const _$HomePageModelImpl({required this.isCharging});
+  const _$HomePageModelImpl(
+      {required this.isCharging, required this.isSearching});
 
   factory _$HomePageModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomePageModelImplFromJson(json);
 
   @override
   final bool isCharging;
+  @override
+  final bool isSearching;
 
   @override
   String toString() {
-    return 'HomePageModel(isCharging: $isCharging)';
+    return 'HomePageModel(isCharging: $isCharging, isSearching: $isSearching)';
   }
 
   @override
@@ -116,12 +130,14 @@ class _$HomePageModelImpl implements _HomePageModel {
         (other.runtimeType == runtimeType &&
             other is _$HomePageModelImpl &&
             (identical(other.isCharging, isCharging) ||
-                other.isCharging == isCharging));
+                other.isCharging == isCharging) &&
+            (identical(other.isSearching, isSearching) ||
+                other.isSearching == isSearching));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isCharging);
+  int get hashCode => Object.hash(runtimeType, isCharging, isSearching);
 
   @JsonKey(ignore: true)
   @override
@@ -138,14 +154,17 @@ class _$HomePageModelImpl implements _HomePageModel {
 }
 
 abstract class _HomePageModel implements HomePageModel {
-  const factory _HomePageModel({required final bool isCharging}) =
-      _$HomePageModelImpl;
+  const factory _HomePageModel(
+      {required final bool isCharging,
+      required final bool isSearching}) = _$HomePageModelImpl;
 
   factory _HomePageModel.fromJson(Map<String, dynamic> json) =
       _$HomePageModelImpl.fromJson;
 
   @override
   bool get isCharging;
+  @override
+  bool get isSearching;
   @override
   @JsonKey(ignore: true)
   _$$HomePageModelImplCopyWith<_$HomePageModelImpl> get copyWith =>

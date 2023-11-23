@@ -18,12 +18,16 @@ class LoginForm extends ConsumerWidget {
           CustomTextFormField(
             hintText: 'Correo electrónico',
             isEmail: true,
+            isPassword: false,
+            isPhone: false,
             icon: Icons.email_outlined,
             controller: notifier.emailController,
           ),
           CustomTextFormField(
             hintText: 'Contraseña',
             isEmail: false,
+            isPassword: true,
+            isPhone: false,
             isObscure: state.isObscure,
             controller: notifier.passwordController,
             icon: Icons.lock_outline_rounded,

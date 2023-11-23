@@ -30,7 +30,7 @@ class HomeButton extends StatelessWidget {
             ),
             child: Icon(
               icon,
-              color: AppColors.typography,
+              color: AppColors.primary,
             ),
           ),
           SizedBox(height: size.height(context, .01)),
