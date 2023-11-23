@@ -12,12 +12,11 @@ class HomeViewMobile extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.black,
         image: DecorationImage(
           image: AssetImage(Assets.images.home.path),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
-            Colors.black.withOpacity(0.2),
+            Colors.black.withOpacity(.3),
             BlendMode.darken,
           ),
         ),

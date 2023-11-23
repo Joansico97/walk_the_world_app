@@ -119,7 +119,7 @@ class HomeBody extends ConsumerWidget {
                       const Spacer(),
                       HomeButton(
                         label: 'Todas las rutas',
-                        onTap: () async => router.push(RoutesNames.register),
+                        onTap: () {},
                         icon: PhosphorIconsBold.footprints,
                       ),
                       SizedBox(width: size.width(context, .15)),

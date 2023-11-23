@@ -16,12 +16,20 @@ class RegisterForm extends ConsumerWidget {
       child: Column(
         children: [
           CustomTextFormField(
-            hintText: 'Nombre completo',
+            hintText: 'Nombres',
             isEmail: false,
             isPassword: false,
             isPhone: false,
             icon: Icons.person_outline_rounded,
             controller: notifier.nameController,
+          ),
+          CustomTextFormField(
+            hintText: 'Apellidos',
+            isEmail: false,
+            isPassword: false,
+            isPhone: false,
+            icon: Icons.person_outline_rounded,
+            controller: notifier.lastNameController,
           ),
           CustomTextFormField(
             hintText: 'Correo electrónico',

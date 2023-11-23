@@ -33,6 +33,7 @@ class RegisterPageEvents extends StateNotifier<RegisterPageModel> {
 
   final Ref ref;
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -49,5 +50,12 @@ class RegisterPageEvents extends StateNotifier<RegisterPageModel> {
   Future<void> goToLogin() async {
     final router = ref.read(appRouterProvider);
     await router.pushNamed(RoutesNames.login);
+  }
+
+  void register() {
+    debugPrint('Nombre: ${nameController.text}');
+    debugPrint('Apellido: ${lastNameController.text}');
+    debugPrint('Correo: ${emailController.text}');
+    debugPrint('Teléfono: ${phoneController.text}');
   }
 }

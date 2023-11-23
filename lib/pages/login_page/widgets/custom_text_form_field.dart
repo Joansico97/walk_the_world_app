@@ -93,7 +93,7 @@ class CustomTextFormField extends ConsumerWidget {
                     suffixIcon: IconButton(
                       onPressed: onTap,
                       icon: Icon(
-                        isObscure! ? PhosphorIconsRegular.eyeClosed : PhosphorIconsRegular.eye,
+                        isObscure! ? PhosphorIconsBold.eyeClosed : PhosphorIconsBold.eye,
                         color: AppColors.grey,
                         size: 20,
                       ),
@@ -118,7 +118,6 @@ class CustomTextFormField extends ConsumerWidget {
                         ),
                         border: InputBorder.none,
                       ),
-                      autofocus: true,
                       disableLengthCheck: true,
                       // languageCode: locale.languageCode,
                       initialCountryCode: 'US',
