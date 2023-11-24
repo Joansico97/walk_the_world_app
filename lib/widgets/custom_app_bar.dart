@@ -46,9 +46,27 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
           const Spacer(),
           Text(
             title,
-            style: AppStyles.heading2,
+            style: AppStyles.heading2.copyWith(
+              color: AppColors.primary,
+              fontSize: size.width(context, .06),
+            ),
           ),
           const Spacer(),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              height: size.height(context, .06),
+              width: size.height(context, .06),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withOpacity(.8),
+                borderRadius: size.borderRadius(context, .03),
+              ),
+              child: const Icon(
+                PhosphorIconsBold.list,
+                color: AppColors.typography,
+              ),
+            ),
+          )
         ],
       ),
     );

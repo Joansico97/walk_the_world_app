@@ -11,3 +11,7 @@ Widget _loginHandler(BuildContext context, GoRouterState state) {
 Widget _registerhHandler(BuildContext context, GoRouterState state) {
   return const RegisterPage();
 }
+
+Widget _cityhHandler(BuildContext context, GoRouterState state) {
+  return const CityPage();
+}
