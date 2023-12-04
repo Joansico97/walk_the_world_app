@@ -9,11 +9,9 @@ part of 'city_provider.dart';
 _$CityPageModelImpl _$$CityPageModelImplFromJson(Map<String, dynamic> json) =>
     _$CityPageModelImpl(
       isCharging: json['isCharging'] as bool,
-      isSearching: json['isSearching'] as bool,
     );
 
 Map<String, dynamic> _$$CityPageModelImplToJson(_$CityPageModelImpl instance) =>
     <String, dynamic>{
       'isCharging': instance.isCharging,
-      'isSearching': instance.isSearching,
     };

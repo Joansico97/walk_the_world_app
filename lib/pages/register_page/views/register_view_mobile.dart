@@ -11,6 +11,7 @@ class RegisterViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(registerProvider);
     final notifier = ref.watch(registerProvider.notifier);
     return Scaffold(
       appBar: CustomAppBar(
@@ -43,7 +44,11 @@ class RegisterViewMobile extends ConsumerWidget {
               SizedBox(height: size.height(context, .02)),
               const RegisterForm(),
               SizedBox(height: size.height(context, .02)),
-              CustomAppButton(onTap: notifier.register, label: 'Registrarse'),
+              CustomAppButton(
+                onTap: notifier.register,
+                label: 'Registrarse',
+                validate: state.isCharging,
+              ),
               SizedBox(height: size.height(context, .02)),
               Text(
                 'Al registrarte, estas aceptando los términos de servicio, las pautas y ha leído la Política de privacidad.',

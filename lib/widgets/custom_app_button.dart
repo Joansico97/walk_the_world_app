@@ -6,27 +6,29 @@ class CustomAppButton extends StatelessWidget {
     super.key,
     required this.onTap,
     required this.label,
+    required this.validate,
   });
 
   final VoidCallback onTap;
   final String label;
+  final bool validate;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: validate ? onTap : null,
       child: Container(
         height: size.height(context, .06),
         width: size.fullWidth(context),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppColors.primary,
+          color: validate ? AppColors.primary : AppColors.dustyGrey,
           borderRadius: size.borderRadius(context, .1),
         ),
         child: Text(
           label,
           style: AppStyles.heading3.copyWith(
-            color: AppColors.typography,
+            color: validate ? AppColors.typography : AppColors.backgoundDark,
             fontWeight: FontWeight.w700,
           ),
         ),

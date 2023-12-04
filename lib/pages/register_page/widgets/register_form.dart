@@ -22,6 +22,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.person_outline_rounded,
             controller: notifier.nameController,
+            validator: () {},
           ),
           CustomTextFormField(
             hintText: 'Apellidos',
@@ -30,6 +31,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.person_outline_rounded,
             controller: notifier.lastNameController,
+            validator: () {},
           ),
           CustomTextFormField(
             hintText: 'Correo electrónico',
@@ -38,6 +40,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.email_outlined,
             controller: notifier.emailController,
+            validator: () {},
           ),
           CustomTextFormField(
             hintText: 'Teléfono',
@@ -46,6 +49,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: true,
             icon: Icons.phone_outlined,
             controller: notifier.phoneController,
+            validator: () {},
           ),
           CustomTextFormField(
             hintText: 'Contraseña',
@@ -56,6 +60,7 @@ class RegisterForm extends ConsumerWidget {
             controller: notifier.passwordController,
             icon: Icons.lock_outline_rounded,
             onTap: () => notifier.changeObscure(),
+            validator: () {},
           ),
           CustomTextFormField(
             hintText: 'Confirmar contraseña',
@@ -66,6 +71,7 @@ class RegisterForm extends ConsumerWidget {
             controller: notifier.repPasswordController,
             icon: Icons.lock_outline_rounded,
             onTap: () => notifier.changeRepObscure(),
+            validator: () {},
           ),
         ],
       ),

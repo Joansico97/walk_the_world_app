@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
+import 'package:wtw_app/data/providers/auth_provider.dart';
 
 class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -18,6 +19,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    final user = ref.watch(authProvider);
     return Container(
       height: size.height(context, .12),
       width: size.fullWidth(context),
@@ -52,21 +54,23 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
             ),
           ),
           const Spacer(),
-          InkWell(
-            onTap: () {},
-            child: Container(
-              height: size.height(context, .06),
-              width: size.height(context, .06),
-              decoration: BoxDecoration(
-                color: AppColors.primary.withOpacity(.8),
-                borderRadius: size.borderRadius(context, .03),
-              ),
-              child: const Icon(
-                PhosphorIconsBold.list,
-                color: AppColors.typography,
-              ),
-            ),
-          )
+          user.getCurrentUser().right != null
+              ? InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: size.height(context, .06),
+                    width: size.height(context, .06),
+                    decoration: BoxDecoration(
+                      color: AppColors.primary.withOpacity(.8),
+                      borderRadius: size.borderRadius(context, .03),
+                    ),
+                    child: const Icon(
+                      PhosphorIconsBold.list,
+                      color: AppColors.typography,
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );

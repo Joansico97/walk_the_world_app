@@ -125,7 +125,7 @@ class HomeBody extends ConsumerWidget {
                       SizedBox(width: size.width(context, .15)),
                       HomeButton(
                         label: 'Cerca de ti',
-                        onTap: () {},
+                        onTap: () async => notifier.onLogout(),
                         icon: PhosphorIconsBold.navigationArrow,
                       ),
                       const Spacer(),

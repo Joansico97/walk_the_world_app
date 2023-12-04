@@ -14,6 +14,7 @@ class CustomTextFormField extends ConsumerWidget {
     required this.controller,
     required this.isPassword,
     required this.isPhone,
+    required this.validator,
     this.isObscure,
     this.onTap,
   });
@@ -24,6 +25,7 @@ class CustomTextFormField extends ConsumerWidget {
   final bool isPhone;
   final IconData icon;
   final TextEditingController controller;
+  final Function validator;
   final bool? isObscure;
   final VoidCallback? onTap;
 
@@ -54,6 +56,9 @@ class CustomTextFormField extends ConsumerWidget {
                 enabledBorder: InputBorder.none,
                 disabledBorder: InputBorder.none,
                 focusedErrorBorder: InputBorder.none,
+                errorStyle: const TextStyle(
+                  height: 0,
+                ),
                 prefixIcon: Icon(
                   icon,
                   color: AppColors.backgoundDark,
@@ -64,6 +69,7 @@ class CustomTextFormField extends ConsumerWidget {
                   fontSize: 18,
                 ),
               ),
+              validator: (value) => validator(),
             )
           : isPassword
               ? TextFormField(
@@ -99,6 +105,7 @@ class CustomTextFormField extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  validator: (value) => validator(),
                 )
               : isPhone
                   ? IntlPhoneField(
@@ -174,6 +181,7 @@ class CustomTextFormField extends ConsumerWidget {
                           fontSize: 18,
                         ),
                       ),
+                      validator: (value) => validator(),
                     ),
     );
   }

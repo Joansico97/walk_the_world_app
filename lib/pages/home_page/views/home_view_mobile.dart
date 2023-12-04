@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wtw_app/core/utils/utils.dart';
+import 'package:wtw_app/data/providers/providers.dart';
 import 'package:wtw_app/gen/assets.gen.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
 import 'package:wtw_app/widgets/widgets.dart';
@@ -10,6 +11,7 @@ class HomeViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authProvider);
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -40,7 +42,7 @@ class HomeViewMobile extends ConsumerWidget {
                 Positioned(
                   right: 0,
                   top: size.height(context, .65),
-                  child: const LoginButton(),
+                  child: user.getCurrentUser().right != null ? const SizedBox() : const LoginButton(),
                 ),
               ],
             ),

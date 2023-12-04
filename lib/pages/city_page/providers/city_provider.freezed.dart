@@ -21,7 +21,6 @@ CityPageModel _$CityPageModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CityPageModel {
   bool get isCharging => throw _privateConstructorUsedError;
-  bool get isSearching => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +34,7 @@ abstract class $CityPageModelCopyWith<$Res> {
           CityPageModel value, $Res Function(CityPageModel) then) =
       _$CityPageModelCopyWithImpl<$Res, CityPageModel>;
   @useResult
-  $Res call({bool isCharging, bool isSearching});
+  $Res call({bool isCharging});
 }
 
 /// @nodoc
@@ -52,16 +51,11 @@ class _$CityPageModelCopyWithImpl<$Res, $Val extends CityPageModel>
   @override
   $Res call({
     Object? isCharging = null,
-    Object? isSearching = null,
   }) {
     return _then(_value.copyWith(
       isCharging: null == isCharging
           ? _value.isCharging
           : isCharging // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearching: null == isSearching
-          ? _value.isSearching
-          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -75,7 +69,7 @@ abstract class _$$CityPageModelImplCopyWith<$Res>
       __$$CityPageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isCharging, bool isSearching});
+  $Res call({bool isCharging});
 }
 
 /// @nodoc
@@ -90,16 +84,11 @@ class __$$CityPageModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isCharging = null,
-    Object? isSearching = null,
   }) {
     return _then(_$CityPageModelImpl(
       isCharging: null == isCharging
           ? _value.isCharging
           : isCharging // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isSearching: null == isSearching
-          ? _value.isSearching
-          : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -108,20 +97,17 @@ class __$$CityPageModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CityPageModelImpl implements _CityPageModel {
-  const _$CityPageModelImpl(
-      {required this.isCharging, required this.isSearching});
+  const _$CityPageModelImpl({required this.isCharging});
 
   factory _$CityPageModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CityPageModelImplFromJson(json);
 
   @override
   final bool isCharging;
-  @override
-  final bool isSearching;
 
   @override
   String toString() {
-    return 'CityPageModel(isCharging: $isCharging, isSearching: $isSearching)';
+    return 'CityPageModel(isCharging: $isCharging)';
   }
 
   @override
@@ -130,14 +116,12 @@ class _$CityPageModelImpl implements _CityPageModel {
         (other.runtimeType == runtimeType &&
             other is _$CityPageModelImpl &&
             (identical(other.isCharging, isCharging) ||
-                other.isCharging == isCharging) &&
-            (identical(other.isSearching, isSearching) ||
-                other.isSearching == isSearching));
+                other.isCharging == isCharging));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isCharging, isSearching);
+  int get hashCode => Object.hash(runtimeType, isCharging);
 
   @JsonKey(ignore: true)
   @override
@@ -154,17 +138,14 @@ class _$CityPageModelImpl implements _CityPageModel {
 }
 
 abstract class _CityPageModel implements CityPageModel {
-  const factory _CityPageModel(
-      {required final bool isCharging,
-      required final bool isSearching}) = _$CityPageModelImpl;
+  const factory _CityPageModel({required final bool isCharging}) =
+      _$CityPageModelImpl;
 
   factory _CityPageModel.fromJson(Map<String, dynamic> json) =
       _$CityPageModelImpl.fromJson;
 
   @override
   bool get isCharging;
-  @override
-  bool get isSearching;
   @override
   @JsonKey(ignore: true)
   _$$CityPageModelImplCopyWith<_$CityPageModelImpl> get copyWith =>

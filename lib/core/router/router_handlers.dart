@@ -12,6 +12,10 @@ Widget _registerhHandler(BuildContext context, GoRouterState state) {
   return const RegisterPage();
 }
 
-Widget _cityhHandler(BuildContext context, GoRouterState state) {
+Widget _cityDetailsHandler(BuildContext context, GoRouterState state) {
+  return const CityDetailsPage();
+}
+
+Widget _cityHandler(BuildContext context, GoRouterState state) {
   return const CityPage();
 }

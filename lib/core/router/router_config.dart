@@ -37,7 +37,13 @@ final _appRouter = GoRouter(
       path: RoutesNames.city,
       name: RoutesNames.city,
       parentNavigatorKey: rootNavigatorKey,
-      builder: _cityhHandler,
+      builder: _cityDetailsHandler,
+    ),
+    GoRoute(
+      path: RoutesNames.cityDetails,
+      name: RoutesNames.cityDetails,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: _cityDetailsHandler,
     ),
   ],
 );

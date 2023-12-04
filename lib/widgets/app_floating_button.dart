@@ -13,7 +13,9 @@ class AppFloatingButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
     return FloatingActionButton(
-      onPressed: () async => router.pushNamed(RoutesNames.home),
+      onPressed: () async {
+        await router.pushNamed(RoutesNames.home);
+      },
       elevation: 0,
       tooltip: 'Ir al inicio',
       backgroundColor: AppColors.primary,

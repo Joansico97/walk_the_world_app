@@ -13,6 +13,8 @@ class LoginForm extends ConsumerWidget {
     final state = ref.watch(loginProvider);
     final notifier = ref.watch(loginProvider.notifier);
     return Form(
+      key: notifier.formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         children: [
           CustomTextFormField(
@@ -22,6 +24,7 @@ class LoginForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.email_outlined,
             controller: notifier.emailController,
+            validator: () => notifier.validateEmail(),
           ),
           CustomTextFormField(
             hintText: 'Contraseña',
@@ -32,6 +35,7 @@ class LoginForm extends ConsumerWidget {
             controller: notifier.passwordController,
             icon: Icons.lock_outline_rounded,
             onTap: () => notifier.changeObscure(),
+            validator: () => notifier.validatePassword(),
           ),
         ],
       ),

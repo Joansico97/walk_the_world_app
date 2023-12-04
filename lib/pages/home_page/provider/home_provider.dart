@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:wtw_app/core/router/router_config.dart';
+import 'package:wtw_app/core/router/routes_names.dart';
+import 'package:wtw_app/data/providers/auth_provider.dart';
 
 part 'home_provider.freezed.dart';
 part 'home_provider.g.dart';
@@ -38,5 +41,10 @@ class HomePageEvents extends StateNotifier<HomePageModel> {
   void cleanSearch() {
     searchConroller.clear();
     state = state.copyWith(isSearching: false);
+  }
+
+  Future<void> onLogout() async {
+    final router = ref.read(appRouterProvider);
+    await ref.read(authProvider).logOut().whenComplete(() => router.go(RoutesNames.home));
   }
 }
