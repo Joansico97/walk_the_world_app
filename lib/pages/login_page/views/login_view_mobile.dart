@@ -11,7 +11,7 @@ class LoginViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(loginProvider);
+    // final state = ref.watch(loginProvider);
     final notifier = ref.watch(loginProvider.notifier);
     return Scaffold(
       appBar: CustomAppBar(
