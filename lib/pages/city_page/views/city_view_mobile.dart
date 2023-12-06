@@ -4,11 +4,15 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
 import 'package:wtw_app/data/providers/auth_provider.dart';
-import 'package:wtw_app/gen/assets.gen.dart';
 import 'package:wtw_app/widgets/widgets.dart';
 
 class CityViewMobile extends ConsumerWidget {
-  const CityViewMobile({Key? key}) : super(key: key);
+  const CityViewMobile({
+    Key? key,
+    required this.city,
+  }) : super(key: key);
+
+  final Map<String, dynamic> city;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -17,7 +21,9 @@ class CityViewMobile extends ConsumerWidget {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(Assets.images.cali.path),
+          image: NetworkImage(
+            city['img'],
+          ),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(.3),
@@ -28,7 +34,8 @@ class CityViewMobile extends ConsumerWidget {
       child: Scaffold(
         appBar: CustomAppBar(
           context: context,
-          title: 'Cali',
+          title: city['name'],
+          isCity: true,
           isHome: false,
         ),
         extendBodyBehindAppBar: true,
@@ -44,15 +51,15 @@ class CityViewMobile extends ConsumerWidget {
                   children: [
                     SizedBox(height: size.height(context, .1)),
                     Container(
-                      height: size.height(context, .3),
-                      width: size.height(context, .3),
+                      height: size.height(context, .4),
+                      width: size.height(context, .4),
                       alignment: Alignment.center,
                       decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: AppColors.primary,
                       ),
                       child: Text(
-                        'Cali',
+                        city['name'],
                         style: AppStyles.heading1.copyWith(
                           fontSize: size.width(context, .1),
                           color: AppColors.typography,

@@ -17,5 +17,8 @@ Widget _cityDetailsHandler(BuildContext context, GoRouterState state) {
 }
 
 Widget _cityHandler(BuildContext context, GoRouterState state) {
-  return const CityPage();
+  final data = state.extra as Map<String, dynamic>;
+  return CityPage(
+    city: data['city'],
+  );
 }

@@ -13,6 +13,8 @@ class RegisterForm extends ConsumerWidget {
     final state = ref.watch(registerProvider);
     final notifier = ref.watch(registerProvider.notifier);
     return Form(
+      key: notifier.formKey,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       child: Column(
         children: [
           CustomTextFormField(
@@ -22,7 +24,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.person_outline_rounded,
             controller: notifier.nameController,
-            validator: () {},
+            validator: () => notifier.validateName(),
           ),
           CustomTextFormField(
             hintText: 'Apellidos',
@@ -31,7 +33,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.person_outline_rounded,
             controller: notifier.lastNameController,
-            validator: () {},
+            validator: () => notifier.validateLastName(),
           ),
           CustomTextFormField(
             hintText: 'Correo electrónico',
@@ -40,16 +42,7 @@ class RegisterForm extends ConsumerWidget {
             isPhone: false,
             icon: Icons.email_outlined,
             controller: notifier.emailController,
-            validator: () {},
-          ),
-          CustomTextFormField(
-            hintText: 'Teléfono',
-            isEmail: false,
-            isPassword: false,
-            isPhone: true,
-            icon: Icons.phone_outlined,
-            controller: notifier.phoneController,
-            validator: () {},
+            validator: () => notifier.validateEmail(),
           ),
           CustomTextFormField(
             hintText: 'Contraseña',
@@ -60,7 +53,7 @@ class RegisterForm extends ConsumerWidget {
             controller: notifier.passwordController,
             icon: Icons.lock_outline_rounded,
             onTap: () => notifier.changeObscure(),
-            validator: () {},
+            validator: () => notifier.validatePassword(),
           ),
           CustomTextFormField(
             hintText: 'Confirmar contraseña',
@@ -71,7 +64,7 @@ class RegisterForm extends ConsumerWidget {
             controller: notifier.repPasswordController,
             icon: Icons.lock_outline_rounded,
             onTap: () => notifier.changeRepObscure(),
-            validator: () {},
+            validator: () => notifier.validateRepPassword(),
           ),
         ],
       ),

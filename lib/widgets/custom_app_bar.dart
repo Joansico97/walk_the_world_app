@@ -11,10 +11,12 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
     required this.context,
     required this.title,
     required this.isHome,
+    this.isCity,
   });
   final BuildContext context;
   final String title;
   final bool isHome;
+  final bool? isCity;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -49,7 +51,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
           Text(
             title,
             style: AppStyles.heading2.copyWith(
-              color: AppColors.primary,
+              color: isCity != null ? AppColors.typography : AppColors.primary,
               fontSize: size.width(context, .06),
             ),
           ),

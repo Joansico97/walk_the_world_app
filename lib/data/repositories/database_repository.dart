@@ -8,7 +8,7 @@ abstract class DatabaseRepository {
     required String table,
   });
   Future<Either<ApiException, Map<String, dynamic>>> get({
-    required Map<String, dynamic> document,
+    required Map<String, dynamic>? document,
     required String table,
   });
   Future<Either<ApiException, String>> updateDocument({

@@ -68,10 +68,6 @@ class LoginPageEvents extends StateNotifier<LoginPageModel> {
     passwordController.clear();
   }
 
-  // bool isValid() {
-  //   return formKey.currentState!.validate();
-  // }
-
   Future<void> loginWithEmailAndPassword() async {
     final router = ref.read(appRouterProvider);
     if (formKey.currentState!.validate()) {

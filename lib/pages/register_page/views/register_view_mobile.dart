@@ -47,7 +47,7 @@ class RegisterViewMobile extends ConsumerWidget {
               CustomAppButton(
                 onTap: notifier.register,
                 label: 'Registrarse',
-                validate: state.isCharging,
+                validate: true,
               ),
               SizedBox(height: size.height(context, .02)),
               Text(

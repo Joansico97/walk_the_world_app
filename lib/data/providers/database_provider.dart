@@ -21,7 +21,7 @@ class _DatabaseProvider implements DatabaseRepository {
 
   @override
   Future<Either<ApiException, Map<String, dynamic>>> get(
-          {required Map<String, dynamic> document, required String table}) =>
+          {required Map<String, dynamic>? document, required String table}) =>
       _databaseResource.get(document: document, table: table);
 
   @override

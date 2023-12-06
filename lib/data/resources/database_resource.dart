@@ -43,16 +43,26 @@ class DatabaseResource implements DatabaseRepository {
 
   @override
   Future<Either<ApiException, Map<String, dynamic>>> get({
-    required Map<String, dynamic> document,
+    required Map<String, dynamic>? document,
     required String table,
   }) async {
     try {
-      final response = await ref.read(firebaseProvider).collection(table).doc(document['id']).get();
+      if (document != null) {
+        final response = await ref.read(firebaseProvider).collection(table).doc(document['id']).get();
 
-      if (response.exists) {
-        return Right(response.data()!);
+        if (response.exists) {
+          return Right(response.data()!);
+        } else {
+          return Left(ApiException(200, 'Document does not exist'));
+        }
       } else {
-        return Left(ApiException(200, 'Document does not exist'));
+        final response = await ref.read(firebaseProvider).collection(table).get();
+        if (response.docs.isNotEmpty) {
+          final data = response.docs.map((e) => e.data()).toList();
+          return Right({'data': data});
+        } else {
+          return Left(ApiException(200, 'Document does not exist'));
+        }
       }
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));

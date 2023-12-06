@@ -6,16 +6,26 @@ import 'package:wtw_app/core/utils/utils.dart';
 import 'package:wtw_app/pages/home_page/provider/home_provider.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
 
-class HomeBody extends ConsumerWidget {
-  const HomeBody({
-    super.key,
-  });
+class HomeBody extends ConsumerStatefulWidget {
+  const HomeBody({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeBody> createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends ConsumerState<HomeBody> {
+  @override
+  void initState() {
+    super.initState();
+    ref.read(homeProvider.notifier).getAllCities();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
     final state = ref.watch(homeProvider);
     final notifier = ref.watch(homeProvider.notifier);
+
     return Padding(
       padding: size.horizontal(context, .1),
       child: Column(
@@ -104,11 +114,26 @@ class HomeBody extends ConsumerWidget {
           ),
           SizedBox(height: size.height(context, .05)),
           state.isSearching
-              ? Text(
-                  notifier.searchConroller.text,
-                  style: AppStyles.body1.copyWith(
-                    color: AppColors.typography,
-                    fontWeight: FontWeight.w700,
+              ? SizedBox(
+                  height: size.height(context, .1),
+                  child: ListView.builder(
+                    itemCount: state.searchedCities.length,
+                    itemBuilder: (context, index) => ListTile(
+                      onTap: () => router.pushNamed(
+                        RoutesNames.city,
+                        extra: {
+                          'city': state.searchedCities[index],
+                        },
+                      ),
+                      title: Text(
+                        state.searchedCities[index]['name'],
+                        textAlign: TextAlign.center,
+                        style: AppStyles.body1.copyWith(
+                          color: AppColors.typography,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
                   ),
                 )
               : SizedBox(
