@@ -10,7 +10,8 @@ final isDarkModeProvider = NotifierProvider<_IsDarkModeProvider, bool>(
 class _IsDarkModeProvider extends Notifier<bool> {
   @override
   bool build() {
-    final sessionBox = Hive.box(LocalStorageConstants.sessionBox).get(LocalStorageConstants.darkModeKey);
+    final sessionBox = Hive.box(LocalStorageConstants.sessionBox)
+        .get(LocalStorageConstants.darkModeKey);
     final bool defaultDarkTheme = sessionBox ?? false;
     return defaultDarkTheme;
   }

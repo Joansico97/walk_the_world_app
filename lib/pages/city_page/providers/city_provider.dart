@@ -14,7 +14,8 @@ class CityPageModel with _$CityPageModel {
     required bool isCharging,
   }) = _CityPageModel;
 
-  factory CityPageModel.fromJson(Map<String, dynamic> json) => _$CityPageModelFromJson(json);
+  factory CityPageModel.fromJson(Map<String, dynamic> json) =>
+      _$CityPageModelFromJson(json);
 }
 
 class CityPageEvents extends StateNotifier<CityPageModel> {

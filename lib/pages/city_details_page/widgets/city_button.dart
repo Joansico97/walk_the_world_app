@@ -6,10 +6,12 @@ class CityButton extends StatelessWidget {
     super.key,
     required this.label,
     required this.onTap,
+    required this.isActive,
   });
 
   final String label;
   final VoidCallback onTap;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,9 @@ class CityButton extends StatelessWidget {
         padding: size.horizontal(context, .08),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppColors.primary.withOpacity(.8),
+          color: isActive
+              ? AppColors.primary.withOpacity(.8)
+              : AppColors.darkWhite,
           borderRadius: size.borderRadius(context, .03),
         ),
         child: Text(

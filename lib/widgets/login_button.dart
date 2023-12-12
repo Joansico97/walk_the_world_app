@@ -16,7 +16,8 @@ class LoginButton extends ConsumerWidget {
       onTap: () async => router.pushNamed(RoutesNames.login),
       child: Container(
         height: size.height(context, .06),
-        padding: EdgeInsets.only(top: 10, bottom: 10, left: 10, right: size.width(context, .08)),
+        padding: EdgeInsets.only(
+            top: 10, bottom: 10, left: 10, right: size.width(context, .08)),
         alignment: Alignment.center,
         decoration: const BoxDecoration(
           color: AppColors.primary,

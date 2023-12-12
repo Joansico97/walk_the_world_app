@@ -42,7 +42,9 @@ class HomeViewMobile extends ConsumerWidget {
                 Positioned(
                   right: 0,
                   top: size.height(context, .65),
-                  child: user.getCurrentUser().right != null ? const SizedBox() : const LoginButton(),
+                  child: user.getCurrentUser().right != null
+                      ? const SizedBox()
+                      : const LoginButton(),
                 ),
               ],
             ),

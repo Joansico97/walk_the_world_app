@@ -11,7 +11,6 @@ class RegisterViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(registerProvider);
     final notifier = ref.watch(registerProvider.notifier);
     return Scaffold(
       appBar: CustomAppBar(
@@ -86,7 +85,8 @@ class RegisterViewMobile extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SocialIconButton(icon: PhosphorIconsBold.googleLogo, onTap: () {}),
+                  SocialIconButton(
+                      icon: PhosphorIconsBold.googleLogo, onTap: () {}),
                 ],
               ),
               SizedBox(height: size.height(context, .02)),

@@ -32,7 +32,11 @@ class DatabaseResource implements DatabaseRepository {
     required String collection,
   }) async {
     try {
-      await ref.read(firebaseProvider).collection(collection).doc(documentId).delete();
+      await ref
+          .read(firebaseProvider)
+          .collection(collection)
+          .doc(documentId)
+          .delete();
       return const Right('Document deleted');
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));
@@ -48,7 +52,11 @@ class DatabaseResource implements DatabaseRepository {
   }) async {
     try {
       if (document != null) {
-        final response = await ref.read(firebaseProvider).collection(table).doc(document['id']).get();
+        final response = await ref
+            .read(firebaseProvider)
+            .collection(table)
+            .doc(document['id'])
+            .get();
 
         if (response.exists) {
           return Right(response.data()!);
@@ -56,7 +64,8 @@ class DatabaseResource implements DatabaseRepository {
           return Left(ApiException(200, 'Document does not exist'));
         }
       } else {
-        final response = await ref.read(firebaseProvider).collection(table).get();
+        final response =
+            await ref.read(firebaseProvider).collection(table).get();
         if (response.docs.isNotEmpty) {
           final data = response.docs.map((e) => e.data()).toList();
           return Right({'data': data});
@@ -77,7 +86,11 @@ class DatabaseResource implements DatabaseRepository {
     required String table,
   }) async {
     try {
-      await ref.read(firebaseProvider).collection(table).doc(document['id']).set(document);
+      await ref
+          .read(firebaseProvider)
+          .collection(table)
+          .doc(document['id'])
+          .set(document);
       return const Right('Document created');
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));
@@ -93,7 +106,11 @@ class DatabaseResource implements DatabaseRepository {
     required String table,
   }) async {
     try {
-      await ref.read(firebaseProvider).collection(table).doc(docId).update(data);
+      await ref
+          .read(firebaseProvider)
+          .collection(table)
+          .doc(docId)
+          .update(data);
       return const Right('Document updated');
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));

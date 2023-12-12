@@ -18,7 +18,8 @@ class LoginPageModel with _$LoginPageModel {
     required bool isObscure,
   }) = _LoginPageModel;
 
-  factory LoginPageModel.fromJson(Map<String, dynamic> json) => _$LoginPageModelFromJson(json);
+  factory LoginPageModel.fromJson(Map<String, dynamic> json) =>
+      _$LoginPageModelFromJson(json);
 }
 
 class LoginPageEvents extends StateNotifier<LoginPageModel> {
@@ -71,12 +72,14 @@ class LoginPageEvents extends StateNotifier<LoginPageModel> {
   Future<void> loginWithEmailAndPassword() async {
     final router = ref.read(appRouterProvider);
     if (formKey.currentState!.validate()) {
-      final response =
-          await ref.read(authProvider).logIn(email: emailController.text, password: passwordController.text);
+      final response = await ref.read(authProvider).logIn(
+          email: emailController.text, password: passwordController.text);
       response.fold(
         (l) {
           state = state.copyWith(isCharging: false);
-          ScaffoldMessenger.of(router.routerDelegate.navigatorKey.currentContext!).showSnackBar(
+          ScaffoldMessenger.of(
+                  router.routerDelegate.navigatorKey.currentContext!)
+              .showSnackBar(
             SnackBar(
               content: Text(l.message),
               backgroundColor: Colors.red,
@@ -89,7 +92,8 @@ class LoginPageEvents extends StateNotifier<LoginPageModel> {
       );
       state = state.copyWith(isCharging: false);
     } else {
-      ScaffoldMessenger.of(router.routerDelegate.navigatorKey.currentContext!).showSnackBar(
+      ScaffoldMessenger.of(router.routerDelegate.navigatorKey.currentContext!)
+          .showSnackBar(
         const SnackBar(
           content: Text('Completa el formulario'),
           backgroundColor: Colors.red,

@@ -13,7 +13,10 @@ Widget _registerhHandler(BuildContext context, GoRouterState state) {
 }
 
 Widget _cityDetailsHandler(BuildContext context, GoRouterState state) {
-  return const CityDetailsPage();
+  final data = state.extra as Map<String, dynamic>;
+  return CityDetailsPage(
+    city: data['city'],
+  );
 }
 
 Widget _cityHandler(BuildContext context, GoRouterState state) {

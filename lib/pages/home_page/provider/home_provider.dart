@@ -22,7 +22,8 @@ class HomePageModel with _$HomePageModel {
     required List<Map<String, dynamic>> searchedCities,
   }) = _HomePageModel;
 
-  factory HomePageModel.fromJson(Map<String, dynamic> json) => _$HomePageModelFromJson(json);
+  factory HomePageModel.fromJson(Map<String, dynamic> json) =>
+      _$HomePageModelFromJson(json);
 }
 
 class HomePageEvents extends StateNotifier<HomePageModel> {
@@ -40,11 +41,16 @@ class HomePageEvents extends StateNotifier<HomePageModel> {
   final TextEditingController searchConroller = TextEditingController();
 
   void onSearch(String value) {
-    value.isEmpty ? state = state.copyWith(isSearching: false) : state = state.copyWith(isSearching: true);
+    value.isEmpty
+        ? state = state.copyWith(isSearching: false)
+        : state = state.copyWith(isSearching: true);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       state = state.copyWith(
         searchedCities: state.cities
-            .where((element) => element['name'].toString().toLowerCase().contains(value.toLowerCase()))
+            .where((element) => element['name']
+                .toString()
+                .toLowerCase()
+                .contains(value.toLowerCase()))
             .toList(),
       );
     });
@@ -57,15 +63,15 @@ class HomePageEvents extends StateNotifier<HomePageModel> {
 
   Future<void> onLogout() async {
     final router = ref.read(appRouterProvider);
-    await ref
-        .read(authProvider)
-        .logOut()
-        .whenComplete(() => Future.delayed(const Duration(milliseconds: 500), () => router.push(RoutesNames.home)));
+    await ref.read(authProvider).logOut().whenComplete(() => Future.delayed(
+        const Duration(milliseconds: 500),
+        () => router.push(RoutesNames.home)));
   }
 
   Future<void> getAllCities() async {
-    final cities = await ref.read(databaseProvider).get(document: null, table: 'Cities');
-    print(cities.right);
+    final cities =
+        await ref.read(databaseProvider).get(document: null, table: 'Cities');
+
     state = state.copyWith(cities: cities.fold((l) => [], (r) => r['data']));
   }
 }

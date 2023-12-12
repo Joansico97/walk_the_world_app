@@ -124,7 +124,7 @@ class _HomeBodyState extends ConsumerState<HomeBody> {
                         extra: {
                           'city': state.searchedCities[index],
                         },
-                      ),
+                      ).whenComplete(() => notifier.cleanSearch()),
                       title: Text(
                         state.searchedCities[index]['name'],
                         textAlign: TextAlign.center,

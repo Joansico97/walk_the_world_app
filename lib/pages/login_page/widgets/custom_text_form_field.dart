@@ -99,7 +99,9 @@ class CustomTextFormField extends ConsumerWidget {
                     suffixIcon: IconButton(
                       onPressed: onTap,
                       icon: Icon(
-                        isObscure! ? PhosphorIconsBold.eyeClosed : PhosphorIconsBold.eye,
+                        isObscure!
+                            ? PhosphorIconsBold.eyeClosed
+                            : PhosphorIconsBold.eye,
                         color: AppColors.grey,
                         size: 20,
                       ),
@@ -132,7 +134,8 @@ class CustomTextFormField extends ConsumerWidget {
                         color: AppColors.backgoundDark,
                         fontWeight: FontWeight.w700,
                       ),
-                      invalidNumberMessage: 'Por favor ingresa un número válido',
+                      invalidNumberMessage:
+                          'Por favor ingresa un número válido',
                       dropdownIconPosition: IconPosition.trailing,
                       dropdownIcon: const Icon(
                         Icons.keyboard_arrow_down_rounded,

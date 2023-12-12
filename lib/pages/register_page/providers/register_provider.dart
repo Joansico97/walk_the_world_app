@@ -8,7 +8,8 @@ import 'package:wtw_app/data/providers/database_provider.dart';
 part 'register_provider.freezed.dart';
 part 'register_provider.g.dart';
 
-final registerProvider = StateNotifierProvider<RegisterPageEvents, RegisterPageModel>(
+final registerProvider =
+    StateNotifierProvider<RegisterPageEvents, RegisterPageModel>(
   (ref) => RegisterPageEvents(ref),
 );
 
@@ -20,7 +21,8 @@ class RegisterPageModel with _$RegisterPageModel {
     required bool isRepObscure,
   }) = _RegisterPageModel;
 
-  factory RegisterPageModel.fromJson(Map<String, dynamic> json) => _$RegisterPageModelFromJson(json);
+  factory RegisterPageModel.fromJson(Map<String, dynamic> json) =>
+      _$RegisterPageModelFromJson(json);
 }
 
 class RegisterPageEvents extends StateNotifier<RegisterPageModel> {
@@ -123,7 +125,9 @@ class RegisterPageEvents extends StateNotifier<RegisterPageModel> {
             password: passwordController.text,
           );
       register.fold(
-          (left) => ScaffoldMessenger.of(router.routerDelegate.navigatorKey.currentContext!).showSnackBar(
+          (left) => ScaffoldMessenger.of(
+                      router.routerDelegate.navigatorKey.currentContext!)
+                  .showSnackBar(
                 SnackBar(
                   content: Text(register.left.message),
                 ),
@@ -135,10 +139,16 @@ class RegisterPageEvents extends StateNotifier<RegisterPageModel> {
           'lastName': lastNameController.text,
           'fullName': '${nameController.text} ${lastNameController.text}',
           'email': emailController.text,
+          'userImage':
+              "https://firebasestorage.googleapis.com/v0/b/stoyco-develop.appspot.com/o/user.png?alt=media&token=66adfa38-e9dc-43a2-ac4c-d9ee4b44d213"
         };
-        final create = await ref.read(databaseProvider).post(document: user, table: 'Users');
+        final create = await ref
+            .read(databaseProvider)
+            .post(document: user, table: 'Users');
         create.fold(
-          (left) => ScaffoldMessenger.of(router.routerDelegate.navigatorKey.currentContext!).showSnackBar(
+          (left) => ScaffoldMessenger.of(
+                  router.routerDelegate.navigatorKey.currentContext!)
+              .showSnackBar(
             SnackBar(
               content: Text(create.left.message),
             ),

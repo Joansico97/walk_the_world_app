@@ -96,8 +96,10 @@ class LoginViewMobile extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SocialIconButton(icon: PhosphorIconsBold.googleLogo, onTap: () {}),
-                    SocialIconButton(icon: Icons.facebook_outlined, onTap: () {}),
+                    SocialIconButton(
+                        icon: PhosphorIconsBold.googleLogo, onTap: () {}),
+                    SocialIconButton(
+                        icon: Icons.facebook_outlined, onTap: () {}),
                   ],
                 ),
                 SizedBox(height: size.height(context, .05)),

@@ -30,9 +30,12 @@ class AuthResource implements AuthRepository {
   }
 
   @override
-  Future<Either<ApiException, String>> logIn({required String email, required String password}) async {
+  Future<Either<ApiException, String>> logIn(
+      {required String email, required String password}) async {
     try {
-      await ref.read(authFirebaseProvider).signInWithEmailAndPassword(email: email, password: password);
+      await ref
+          .read(authFirebaseProvider)
+          .signInWithEmailAndPassword(email: email, password: password);
       return const Right('');
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));
@@ -54,9 +57,12 @@ class AuthResource implements AuthRepository {
   }
 
   @override
-  Future<Either<ApiException, String>> register({required String email, required String password}) async {
+  Future<Either<ApiException, String>> register(
+      {required String email, required String password}) async {
     try {
-      await ref.read(authFirebaseProvider).createUserWithEmailAndPassword(email: email, password: password);
+      await ref
+          .read(authFirebaseProvider)
+          .createUserWithEmailAndPassword(email: email, password: password);
       return const Right('');
     } on FirebaseException catch (e) {
       return Left(ApiException(200, e.message!));

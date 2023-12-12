@@ -5,7 +5,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'city_details_provider.freezed.dart';
 part 'city_details_provider.g.dart';
 
-final cityDetailsProvider = StateNotifierProvider<CityDetailsPageEvents, CityDetailsPageModel>(
+final cityDetailsProvider =
+    StateNotifierProvider<CityDetailsPageEvents, CityDetailsPageModel>(
   (ref) => CityDetailsPageEvents(ref),
 );
 
@@ -16,7 +17,8 @@ class CityDetailsPageModel with _$CityDetailsPageModel {
     required bool isSearching,
   }) = _CityDetailsPageModel;
 
-  factory CityDetailsPageModel.fromJson(Map<String, dynamic> json) => _$CityDetailsPageModelFromJson(json);
+  factory CityDetailsPageModel.fromJson(Map<String, dynamic> json) =>
+      _$CityDetailsPageModelFromJson(json);
 }
 
 class CityDetailsPageEvents extends StateNotifier<CityDetailsPageModel> {
@@ -32,7 +34,9 @@ class CityDetailsPageEvents extends StateNotifier<CityDetailsPageModel> {
   final TextEditingController searchConroller = TextEditingController();
 
   void onSearch(String value) {
-    value.isEmpty ? state = state.copyWith(isSearching: false) : state = state.copyWith(isSearching: true);
+    value.isEmpty
+        ? state = state.copyWith(isSearching: false)
+        : state = state.copyWith(isSearching: true);
   }
 
   void cleanSearch() {
