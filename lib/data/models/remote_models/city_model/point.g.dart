@@ -6,8 +6,8 @@ part of 'point.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PointImpl _$$PointImplFromJson(Map<String, dynamic> json) => _$PointImpl(
-      id: json['id'] as String?,
+_$PointModelImpl _$$PointModelImplFromJson(Map<String, dynamic> json) =>
+    _$PointModelImpl(
       name: json['name'] as String?,
       img: json['img'] as String?,
       description: json['description'] as String?,
@@ -15,9 +15,8 @@ _$PointImpl _$$PointImplFromJson(Map<String, dynamic> json) => _$PointImpl(
       lng: json['lng'] as String?,
     );
 
-Map<String, dynamic> _$$PointImplToJson(_$PointImpl instance) =>
+Map<String, dynamic> _$$PointModelImplToJson(_$PointModelImpl instance) =>
     <String, dynamic>{
-      'id': instance.id,
       'name': instance.name,
       'img': instance.img,
       'description': instance.description,

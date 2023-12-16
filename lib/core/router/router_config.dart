@@ -45,5 +45,17 @@ final _appRouter = GoRouter(
       parentNavigatorKey: rootNavigatorKey,
       builder: _cityDetailsHandler,
     ),
+    GoRoute(
+      path: RoutesNames.routeDetails,
+      name: RoutesNames.routeDetails,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: _routeDetailsHandler,
+    ),
+    GoRoute(
+      path: RoutesNames.restaurantDetails,
+      name: RoutesNames.restaurantDetails,
+      parentNavigatorKey: rootNavigatorKey,
+      builder: _restaurantDetailsHandler,
+    ),
   ],
 );

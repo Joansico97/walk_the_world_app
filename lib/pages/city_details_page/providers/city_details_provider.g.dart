@@ -11,6 +11,9 @@ _$CityDetailsPageModelImpl _$$CityDetailsPageModelImplFromJson(
     _$CityDetailsPageModelImpl(
       isCharging: json['isCharging'] as bool,
       isSearching: json['isSearching'] as bool,
+      index: json['index'] as int,
+      isSelected:
+          (json['isSelected'] as List<dynamic>).map((e) => e as bool).toList(),
     );
 
 Map<String, dynamic> _$$CityDetailsPageModelImplToJson(
@@ -18,4 +21,6 @@ Map<String, dynamic> _$$CityDetailsPageModelImplToJson(
     <String, dynamic>{
       'isCharging': instance.isCharging,
       'isSearching': instance.isSearching,
+      'index': instance.index,
+      'isSelected': instance.isSelected,
     };

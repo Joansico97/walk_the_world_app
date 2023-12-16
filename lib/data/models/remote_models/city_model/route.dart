@@ -6,14 +6,14 @@ part 'route.freezed.dart';
 part 'route.g.dart';
 
 @freezed
-class Route with _$Route {
-  factory Route({
+class RouteModel with _$RouteModel {
+  factory RouteModel({
     String? id,
     String? name,
     String? img,
     String? description,
-    List<Point>? points,
-  }) = _Route;
+    List<PointModel>? points,
+  }) = _RouteModel;
 
-  factory Route.fromJson(Map<String, dynamic> json) => _$RouteFromJson(json);
+  factory RouteModel.fromJson(Map<String, dynamic> json) => _$RouteModelFromJson(json);
 }

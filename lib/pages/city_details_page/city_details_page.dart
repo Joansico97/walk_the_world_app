@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wtw_app/core/utils/utils.dart';
+import 'package:wtw_app/data/models/remote_models/city_model/city_model.dart';
 import 'package:wtw_app/pages/city_details_page/views/views.dart';
 
 class CityDetailsPage extends BasePage {
@@ -8,7 +9,7 @@ class CityDetailsPage extends BasePage {
     required this.city,
   }) : super(key: key);
 
-  final Map<String, dynamic> city;
+  final CityModel city;
 
   @override
   mobileBody(BuildContext context) {

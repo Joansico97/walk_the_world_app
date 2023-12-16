@@ -23,7 +23,7 @@ mixin _$CityModel {
   String? get id => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   String? get img => throw _privateConstructorUsedError;
-  List<Route>? get routes => throw _privateConstructorUsedError;
+  List<RouteModel>? get routes => throw _privateConstructorUsedError;
   List<Restaurant>? get restaurants => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $CityModelCopyWith<$Res> {
       {String? id,
       String? name,
       String? img,
-      List<Route>? routes,
+      List<RouteModel>? routes,
       List<Restaurant>? restaurants});
 }
 
@@ -80,7 +80,7 @@ class _$CityModelCopyWithImpl<$Res, $Val extends CityModel>
       routes: freezed == routes
           ? _value.routes
           : routes // ignore: cast_nullable_to_non_nullable
-              as List<Route>?,
+              as List<RouteModel>?,
       restaurants: freezed == restaurants
           ? _value.restaurants
           : restaurants // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$CityModelImplCopyWith<$Res>
       {String? id,
       String? name,
       String? img,
-      List<Route>? routes,
+      List<RouteModel>? routes,
       List<Restaurant>? restaurants});
 }
 
@@ -138,7 +138,7 @@ class __$$CityModelImplCopyWithImpl<$Res>
       routes: freezed == routes
           ? _value._routes
           : routes // ignore: cast_nullable_to_non_nullable
-              as List<Route>?,
+              as List<RouteModel>?,
       restaurants: freezed == restaurants
           ? _value._restaurants
           : restaurants // ignore: cast_nullable_to_non_nullable
@@ -154,7 +154,7 @@ class _$CityModelImpl implements _CityModel {
       {this.id,
       this.name,
       this.img,
-      final List<Route>? routes,
+      final List<RouteModel>? routes,
       final List<Restaurant>? restaurants})
       : _routes = routes,
         _restaurants = restaurants;
@@ -168,9 +168,9 @@ class _$CityModelImpl implements _CityModel {
   final String? name;
   @override
   final String? img;
-  final List<Route>? _routes;
+  final List<RouteModel>? _routes;
   @override
-  List<Route>? get routes {
+  List<RouteModel>? get routes {
     final value = _routes;
     if (value == null) return null;
     if (_routes is EqualUnmodifiableListView) return _routes;
@@ -235,7 +235,7 @@ abstract class _CityModel implements CityModel {
       {final String? id,
       final String? name,
       final String? img,
-      final List<Route>? routes,
+      final List<RouteModel>? routes,
       final List<Restaurant>? restaurants}) = _$CityModelImpl;
 
   factory _CityModel.fromJson(Map<String, dynamic> json) =
@@ -248,7 +248,7 @@ abstract class _CityModel implements CityModel {
   @override
   String? get img;
   @override
-  List<Route>? get routes;
+  List<RouteModel>? get routes;
   @override
   List<Restaurant>? get restaurants;
   @override

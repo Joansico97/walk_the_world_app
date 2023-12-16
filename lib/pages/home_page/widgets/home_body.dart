@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:wtw_app/core/router/router.dart';
 import 'package:wtw_app/core/utils/utils.dart';
+import 'package:wtw_app/data/providers/cities_provider.dart';
 import 'package:wtw_app/pages/home_page/provider/home_provider.dart';
 import 'package:wtw_app/pages/home_page/widgets/widgets.dart';
 
@@ -17,12 +18,13 @@ class _HomeBodyState extends ConsumerState<HomeBody> {
   @override
   void initState() {
     super.initState();
-    ref.read(homeProvider.notifier).getAllCities();
+    ref.read(citiesProvider.notifier).getAllCities();
   }
 
   @override
   Widget build(BuildContext context) {
     final router = ref.watch(appRouterProvider);
+    final citiesState = ref.watch(citiesProvider);
     final state = ref.watch(homeProvider);
     final notifier = ref.watch(homeProvider.notifier);
 
@@ -117,16 +119,16 @@ class _HomeBodyState extends ConsumerState<HomeBody> {
               ? SizedBox(
                   height: size.height(context, .1),
                   child: ListView.builder(
-                    itemCount: state.searchedCities.length,
+                    itemCount: citiesState.searchedCities.length,
                     itemBuilder: (context, index) => ListTile(
                       onTap: () => router.pushNamed(
                         RoutesNames.city,
                         extra: {
-                          'city': state.searchedCities[index],
+                          'city': citiesState.searchedCities[index],
                         },
                       ).whenComplete(() => notifier.cleanSearch()),
                       title: Text(
-                        state.searchedCities[index]['name'],
+                        citiesState.searchedCities[index].name!,
                         textAlign: TextAlign.center,
                         style: AppStyles.body1.copyWith(
                           color: AppColors.typography,

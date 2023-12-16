@@ -12,10 +12,9 @@ class CityModel with _$CityModel {
     String? id,
     String? name,
     String? img,
-    List<Route>? routes,
+    List<RouteModel>? routes,
     List<Restaurant>? restaurants,
   }) = _CityModel;
 
-  factory CityModel.fromJson(Map<String, dynamic> json) =>
-      _$CityModelFromJson(json);
+  factory CityModel.fromJson(Map<String, dynamic> json) => _$CityModelFromJson(json);
 }

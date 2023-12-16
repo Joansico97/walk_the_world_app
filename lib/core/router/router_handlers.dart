@@ -25,3 +25,17 @@ Widget _cityHandler(BuildContext context, GoRouterState state) {
     city: data['city'],
   );
 }
+
+Widget _routeDetailsHandler(BuildContext context, GoRouterState state) {
+  final data = state.extra as Map<String, dynamic>;
+  return RouteDetailsPage(
+    route: data['route'],
+  );
+}
+
+Widget _restaurantDetailsHandler(BuildContext context, GoRouterState state) {
+  final data = state.extra as Map<String, dynamic>;
+  return RestaurantDetailsPage(
+    restaurant: data['restaurant'],
+  );
+}

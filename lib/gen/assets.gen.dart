@@ -16,14 +16,15 @@ class $AssetsImagesGen {
   AssetGenImage get appIcon =>
       const AssetGenImage('assets/images/app_icon.jpeg');
 
-  /// File path: assets/images/cali.jpg
-  AssetGenImage get cali => const AssetGenImage('assets/images/cali.jpg');
-
   /// File path: assets/images/home.jpg
   AssetGenImage get home => const AssetGenImage('assets/images/home.jpg');
 
+  /// File path: assets/images/place_holder.jpg
+  AssetGenImage get placeHolder =>
+      const AssetGenImage('assets/images/place_holder.jpg');
+
   /// List of all assets
-  List<AssetGenImage> get values => [appIcon, cali, home];
+  List<AssetGenImage> get values => [appIcon, home, placeHolder];
 }
 
 class Assets {

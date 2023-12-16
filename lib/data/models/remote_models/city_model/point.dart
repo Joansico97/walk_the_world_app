@@ -4,15 +4,14 @@ part 'point.freezed.dart';
 part 'point.g.dart';
 
 @freezed
-class Point with _$Point {
-  factory Point({
-    String? id,
+class PointModel with _$PointModel {
+  factory PointModel({
     String? name,
     String? img,
     String? description,
     String? lat,
     String? lng,
-  }) = _Point;
+  }) = _PointModel;
 
-  factory Point.fromJson(Map<String, dynamic> json) => _$PointFromJson(json);
+  factory PointModel.fromJson(Map<String, dynamic> json) => _$PointModelFromJson(json);
 }

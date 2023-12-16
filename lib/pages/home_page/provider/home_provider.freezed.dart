@@ -20,11 +20,7 @@ HomePageModel _$HomePageModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HomePageModel {
-  bool get isCharging => throw _privateConstructorUsedError;
   bool get isSearching => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get cities => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get searchedCities =>
-      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,11 +34,7 @@ abstract class $HomePageModelCopyWith<$Res> {
           HomePageModel value, $Res Function(HomePageModel) then) =
       _$HomePageModelCopyWithImpl<$Res, HomePageModel>;
   @useResult
-  $Res call(
-      {bool isCharging,
-      bool isSearching,
-      List<Map<String, dynamic>> cities,
-      List<Map<String, dynamic>> searchedCities});
+  $Res call({bool isSearching});
 }
 
 /// @nodoc
@@ -58,28 +50,13 @@ class _$HomePageModelCopyWithImpl<$Res, $Val extends HomePageModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isCharging = null,
     Object? isSearching = null,
-    Object? cities = null,
-    Object? searchedCities = null,
   }) {
     return _then(_value.copyWith(
-      isCharging: null == isCharging
-          ? _value.isCharging
-          : isCharging // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSearching: null == isSearching
           ? _value.isSearching
           : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
-      cities: null == cities
-          ? _value.cities
-          : cities // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      searchedCities: null == searchedCities
-          ? _value.searchedCities
-          : searchedCities // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
     ) as $Val);
   }
 }
@@ -92,11 +69,7 @@ abstract class _$$HomePageModelImplCopyWith<$Res>
       __$$HomePageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {bool isCharging,
-      bool isSearching,
-      List<Map<String, dynamic>> cities,
-      List<Map<String, dynamic>> searchedCities});
+  $Res call({bool isSearching});
 }
 
 /// @nodoc
@@ -110,28 +83,13 @@ class __$$HomePageModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? isCharging = null,
     Object? isSearching = null,
-    Object? cities = null,
-    Object? searchedCities = null,
   }) {
     return _then(_$HomePageModelImpl(
-      isCharging: null == isCharging
-          ? _value.isCharging
-          : isCharging // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSearching: null == isSearching
           ? _value.isSearching
           : isSearching // ignore: cast_nullable_to_non_nullable
               as bool,
-      cities: null == cities
-          ? _value._cities
-          : cities // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      searchedCities: null == searchedCities
-          ? _value._searchedCities
-          : searchedCities // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
     ));
   }
 }
@@ -139,40 +97,17 @@ class __$$HomePageModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$HomePageModelImpl implements _HomePageModel {
-  const _$HomePageModelImpl(
-      {required this.isCharging,
-      required this.isSearching,
-      required final List<Map<String, dynamic>> cities,
-      required final List<Map<String, dynamic>> searchedCities})
-      : _cities = cities,
-        _searchedCities = searchedCities;
+  const _$HomePageModelImpl({required this.isSearching});
 
   factory _$HomePageModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$HomePageModelImplFromJson(json);
 
   @override
-  final bool isCharging;
-  @override
   final bool isSearching;
-  final List<Map<String, dynamic>> _cities;
-  @override
-  List<Map<String, dynamic>> get cities {
-    if (_cities is EqualUnmodifiableListView) return _cities;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_cities);
-  }
-
-  final List<Map<String, dynamic>> _searchedCities;
-  @override
-  List<Map<String, dynamic>> get searchedCities {
-    if (_searchedCities is EqualUnmodifiableListView) return _searchedCities;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_searchedCities);
-  }
 
   @override
   String toString() {
-    return 'HomePageModel(isCharging: $isCharging, isSearching: $isSearching, cities: $cities, searchedCities: $searchedCities)';
+    return 'HomePageModel(isSearching: $isSearching)';
   }
 
   @override
@@ -180,23 +115,13 @@ class _$HomePageModelImpl implements _HomePageModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomePageModelImpl &&
-            (identical(other.isCharging, isCharging) ||
-                other.isCharging == isCharging) &&
             (identical(other.isSearching, isSearching) ||
-                other.isSearching == isSearching) &&
-            const DeepCollectionEquality().equals(other._cities, _cities) &&
-            const DeepCollectionEquality()
-                .equals(other._searchedCities, _searchedCities));
+                other.isSearching == isSearching));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      isCharging,
-      isSearching,
-      const DeepCollectionEquality().hash(_cities),
-      const DeepCollectionEquality().hash(_searchedCities));
+  int get hashCode => Object.hash(runtimeType, isSearching);
 
   @JsonKey(ignore: true)
   @override
@@ -213,24 +138,14 @@ class _$HomePageModelImpl implements _HomePageModel {
 }
 
 abstract class _HomePageModel implements HomePageModel {
-  const factory _HomePageModel(
-          {required final bool isCharging,
-          required final bool isSearching,
-          required final List<Map<String, dynamic>> cities,
-          required final List<Map<String, dynamic>> searchedCities}) =
+  const factory _HomePageModel({required final bool isSearching}) =
       _$HomePageModelImpl;
 
   factory _HomePageModel.fromJson(Map<String, dynamic> json) =
       _$HomePageModelImpl.fromJson;
 
   @override
-  bool get isCharging;
-  @override
   bool get isSearching;
-  @override
-  List<Map<String, dynamic>> get cities;
-  @override
-  List<Map<String, dynamic>> get searchedCities;
   @override
   @JsonKey(ignore: true)
   _$$HomePageModelImplCopyWith<_$HomePageModelImpl> get copyWith =>

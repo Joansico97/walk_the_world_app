@@ -12,7 +12,7 @@ _$CityModelImpl _$$CityModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       img: json['img'] as String?,
       routes: (json['routes'] as List<dynamic>?)
-          ?.map((e) => Route.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => RouteModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       restaurants: (json['restaurants'] as List<dynamic>?)
           ?.map((e) => Restaurant.fromJson(e as Map<String, dynamic>))
