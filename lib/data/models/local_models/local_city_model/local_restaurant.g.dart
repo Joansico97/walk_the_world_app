@@ -23,13 +23,15 @@ class LocalRestaurantAdapter extends TypeAdapter<LocalRestaurant> {
       description: fields[3] as String?,
       lat: fields[4] as String?,
       lng: fields[5] as String?,
-    );
+    )
+      ..rating = fields[6] as double?
+      ..amoungtRating = fields[7] as double?;
   }
 
   @override
   void write(BinaryWriter writer, LocalRestaurant obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +43,11 @@ class LocalRestaurantAdapter extends TypeAdapter<LocalRestaurant> {
       ..writeByte(4)
       ..write(obj.lat)
       ..writeByte(5)
-      ..write(obj.lng);
+      ..write(obj.lng)
+      ..writeByte(6)
+      ..write(obj.rating)
+      ..writeByte(7)
+      ..write(obj.amoungtRating);
   }
 
   @override

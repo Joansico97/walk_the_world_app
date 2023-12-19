@@ -12,6 +12,8 @@ class RouteModel with _$RouteModel {
     String? name,
     String? img,
     String? description,
+    double? rating,
+    double? amoungtRating,
     List<PointModel>? points,
   }) = _RouteModel;
 

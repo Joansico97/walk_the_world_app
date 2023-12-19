@@ -26,6 +26,8 @@ mixin _$Restaurant {
   String? get description => throw _privateConstructorUsedError;
   String? get lat => throw _privateConstructorUsedError;
   String? get lng => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
+  double? get amoungtRating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +47,9 @@ abstract class $RestaurantCopyWith<$Res> {
       String? img,
       String? description,
       String? lat,
-      String? lng});
+      String? lng,
+      double? rating,
+      double? amoungtRating});
 }
 
 /// @nodoc
@@ -67,6 +71,8 @@ class _$RestaurantCopyWithImpl<$Res, $Val extends Restaurant>
     Object? description = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
+    Object? rating = freezed,
+    Object? amoungtRating = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -93,6 +99,14 @@ class _$RestaurantCopyWithImpl<$Res, $Val extends Restaurant>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amoungtRating: freezed == amoungtRating
+          ? _value.amoungtRating
+          : amoungtRating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ) as $Val);
   }
 }
@@ -111,7 +125,9 @@ abstract class _$$RestaurantImplCopyWith<$Res>
       String? img,
       String? description,
       String? lat,
-      String? lng});
+      String? lng,
+      double? rating,
+      double? amoungtRating});
 }
 
 /// @nodoc
@@ -131,6 +147,8 @@ class __$$RestaurantImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? lat = freezed,
     Object? lng = freezed,
+    Object? rating = freezed,
+    Object? amoungtRating = freezed,
   }) {
     return _then(_$RestaurantImpl(
       id: freezed == id
@@ -157,6 +175,14 @@ class __$$RestaurantImplCopyWithImpl<$Res>
           ? _value.lng
           : lng // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amoungtRating: freezed == amoungtRating
+          ? _value.amoungtRating
+          : amoungtRating // ignore: cast_nullable_to_non_nullable
+              as double?,
     ));
   }
 }
@@ -165,7 +191,14 @@ class __$$RestaurantImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$RestaurantImpl implements _Restaurant {
   _$RestaurantImpl(
-      {this.id, this.name, this.img, this.description, this.lat, this.lng});
+      {this.id,
+      this.name,
+      this.img,
+      this.description,
+      this.lat,
+      this.lng,
+      this.rating,
+      this.amoungtRating});
 
   factory _$RestaurantImpl.fromJson(Map<String, dynamic> json) =>
       _$$RestaurantImplFromJson(json);
@@ -182,10 +215,14 @@ class _$RestaurantImpl implements _Restaurant {
   final String? lat;
   @override
   final String? lng;
+  @override
+  final double? rating;
+  @override
+  final double? amoungtRating;
 
   @override
   String toString() {
-    return 'Restaurant(id: $id, name: $name, img: $img, description: $description, lat: $lat, lng: $lng)';
+    return 'Restaurant(id: $id, name: $name, img: $img, description: $description, lat: $lat, lng: $lng, rating: $rating, amoungtRating: $amoungtRating)';
   }
 
   @override
@@ -199,13 +236,16 @@ class _$RestaurantImpl implements _Restaurant {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.lat, lat) || other.lat == lat) &&
-            (identical(other.lng, lng) || other.lng == lng));
+            (identical(other.lng, lng) || other.lng == lng) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.amoungtRating, amoungtRating) ||
+                other.amoungtRating == amoungtRating));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, img, description, lat, lng);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, img, description, lat, lng, rating, amoungtRating);
 
   @JsonKey(ignore: true)
   @override
@@ -228,7 +268,9 @@ abstract class _Restaurant implements Restaurant {
       final String? img,
       final String? description,
       final String? lat,
-      final String? lng}) = _$RestaurantImpl;
+      final String? lng,
+      final double? rating,
+      final double? amoungtRating}) = _$RestaurantImpl;
 
   factory _Restaurant.fromJson(Map<String, dynamic> json) =
       _$RestaurantImpl.fromJson;
@@ -245,6 +287,10 @@ abstract class _Restaurant implements Restaurant {
   String? get lat;
   @override
   String? get lng;
+  @override
+  double? get rating;
+  @override
+  double? get amoungtRating;
   @override
   @JsonKey(ignore: true)
   _$$RestaurantImplCopyWith<_$RestaurantImpl> get copyWith =>

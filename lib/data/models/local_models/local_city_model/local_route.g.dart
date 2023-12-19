@@ -22,13 +22,15 @@ class LocalRouteAdapter extends TypeAdapter<LocalRoute> {
       img: fields[2] as String?,
       description: fields[3] as String?,
       points: (fields[4] as List?)?.cast<LocalPoints>(),
-    );
+    )
+      ..rating = fields[5] as double?
+      ..amoungtRating = fields[6] as double?;
   }
 
   @override
   void write(BinaryWriter writer, LocalRoute obj) {
     writer
-      ..writeByte(5)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -38,7 +40,11 @@ class LocalRouteAdapter extends TypeAdapter<LocalRoute> {
       ..writeByte(3)
       ..write(obj.description)
       ..writeByte(4)
-      ..write(obj.points);
+      ..write(obj.points)
+      ..writeByte(5)
+      ..write(obj.rating)
+      ..writeByte(6)
+      ..write(obj.amoungtRating);
   }
 
   @override

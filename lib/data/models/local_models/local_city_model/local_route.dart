@@ -15,6 +15,10 @@ class LocalRoute {
   String? description;
   @HiveField(4)
   List<LocalPoints>? points;
+  @HiveField(5)
+  double? rating;
+  @HiveField(6)
+  double? amoungtRating;
 
   LocalRoute({
     this.id,

@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wtw_app/core/utils/utils.dart';
 import 'package:wtw_app/data/models/remote_models/city_model/restaurant.dart';
 import 'package:wtw_app/gen/assets.gen.dart';
-import 'package:wtw_app/pages/restaurant_details_page/providers/restaurant_details_provider.dart';
+// import 'package:wtw_app/pages/restaurant_details_page/providers/restaurant_details_provider.dart';
 import 'package:wtw_app/widgets/widgets.dart';
 
 class RestaurantDetailsViewMobile extends ConsumerWidget {
@@ -17,7 +17,7 @@ class RestaurantDetailsViewMobile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notifier = ref.watch(restaurantDetailsProvider.notifier);
+    // final notifier = ref.watch(restaurantDetailsProvider.notifier);
     return Scaffold(
       appBar: CustomAppBar(
         context: context,

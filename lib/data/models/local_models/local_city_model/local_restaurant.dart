@@ -16,6 +16,10 @@ class LocalRestaurant {
   String? lat;
   @HiveField(5)
   String? lng;
+  @HiveField(6)
+  double? rating;
+  @HiveField(7)
+  double? amoungtRating;
 
   LocalRestaurant({
     this.id,

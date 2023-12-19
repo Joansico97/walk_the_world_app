@@ -12,6 +12,8 @@ _$RouteModelImpl _$$RouteModelImplFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       img: json['img'] as String?,
       description: json['description'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
+      amoungtRating: (json['amoungtRating'] as num?)?.toDouble(),
       points: (json['points'] as List<dynamic>?)
           ?.map((e) => PointModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -23,5 +25,7 @@ Map<String, dynamic> _$$RouteModelImplToJson(_$RouteModelImpl instance) =>
       'name': instance.name,
       'img': instance.img,
       'description': instance.description,
+      'rating': instance.rating,
+      'amoungtRating': instance.amoungtRating,
       'points': instance.points,
     };

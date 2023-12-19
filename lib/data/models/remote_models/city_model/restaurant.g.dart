@@ -14,6 +14,8 @@ _$RestaurantImpl _$$RestaurantImplFromJson(Map<String, dynamic> json) =>
       description: json['description'] as String?,
       lat: json['lat'] as String?,
       lng: json['lng'] as String?,
+      rating: (json['rating'] as num?)?.toDouble(),
+      amoungtRating: (json['amoungtRating'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$RestaurantImplToJson(_$RestaurantImpl instance) =>
@@ -24,4 +26,6 @@ Map<String, dynamic> _$$RestaurantImplToJson(_$RestaurantImpl instance) =>
       'description': instance.description,
       'lat': instance.lat,
       'lng': instance.lng,
+      'rating': instance.rating,
+      'amoungtRating': instance.amoungtRating,
     };

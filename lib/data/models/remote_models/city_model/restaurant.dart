@@ -12,8 +12,9 @@ class Restaurant with _$Restaurant {
     String? description,
     String? lat,
     String? lng,
+    double? rating,
+    double? amoungtRating,
   }) = _Restaurant;
 
-  factory Restaurant.fromJson(Map<String, dynamic> json) =>
-      _$RestaurantFromJson(json);
+  factory Restaurant.fromJson(Map<String, dynamic> json) => _$RestaurantFromJson(json);
 }

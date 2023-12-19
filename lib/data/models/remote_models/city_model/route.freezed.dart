@@ -24,6 +24,8 @@ mixin _$RouteModel {
   String? get name => throw _privateConstructorUsedError;
   String? get img => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  double? get rating => throw _privateConstructorUsedError;
+  double? get amoungtRating => throw _privateConstructorUsedError;
   List<PointModel>? get points => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,6 +45,8 @@ abstract class $RouteModelCopyWith<$Res> {
       String? name,
       String? img,
       String? description,
+      double? rating,
+      double? amoungtRating,
       List<PointModel>? points});
 }
 
@@ -63,6 +67,8 @@ class _$RouteModelCopyWithImpl<$Res, $Val extends RouteModel>
     Object? name = freezed,
     Object? img = freezed,
     Object? description = freezed,
+    Object? rating = freezed,
+    Object? amoungtRating = freezed,
     Object? points = freezed,
   }) {
     return _then(_value.copyWith(
@@ -82,6 +88,14 @@ class _$RouteModelCopyWithImpl<$Res, $Val extends RouteModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amoungtRating: freezed == amoungtRating
+          ? _value.amoungtRating
+          : amoungtRating // ignore: cast_nullable_to_non_nullable
+              as double?,
       points: freezed == points
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
@@ -103,6 +117,8 @@ abstract class _$$RouteModelImplCopyWith<$Res>
       String? name,
       String? img,
       String? description,
+      double? rating,
+      double? amoungtRating,
       List<PointModel>? points});
 }
 
@@ -121,6 +137,8 @@ class __$$RouteModelImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? img = freezed,
     Object? description = freezed,
+    Object? rating = freezed,
+    Object? amoungtRating = freezed,
     Object? points = freezed,
   }) {
     return _then(_$RouteModelImpl(
@@ -140,6 +158,14 @@ class __$$RouteModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: freezed == rating
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as double?,
+      amoungtRating: freezed == amoungtRating
+          ? _value.amoungtRating
+          : amoungtRating // ignore: cast_nullable_to_non_nullable
+              as double?,
       points: freezed == points
           ? _value._points
           : points // ignore: cast_nullable_to_non_nullable
@@ -156,6 +182,8 @@ class _$RouteModelImpl implements _RouteModel {
       this.name,
       this.img,
       this.description,
+      this.rating,
+      this.amoungtRating,
       final List<PointModel>? points})
       : _points = points;
 
@@ -170,6 +198,10 @@ class _$RouteModelImpl implements _RouteModel {
   final String? img;
   @override
   final String? description;
+  @override
+  final double? rating;
+  @override
+  final double? amoungtRating;
   final List<PointModel>? _points;
   @override
   List<PointModel>? get points {
@@ -182,7 +214,7 @@ class _$RouteModelImpl implements _RouteModel {
 
   @override
   String toString() {
-    return 'RouteModel(id: $id, name: $name, img: $img, description: $description, points: $points)';
+    return 'RouteModel(id: $id, name: $name, img: $img, description: $description, rating: $rating, amoungtRating: $amoungtRating, points: $points)';
   }
 
   @override
@@ -195,13 +227,16 @@ class _$RouteModelImpl implements _RouteModel {
             (identical(other.img, img) || other.img == img) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            (identical(other.rating, rating) || other.rating == rating) &&
+            (identical(other.amoungtRating, amoungtRating) ||
+                other.amoungtRating == amoungtRating) &&
             const DeepCollectionEquality().equals(other._points, _points));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, img, description,
-      const DeepCollectionEquality().hash(_points));
+      rating, amoungtRating, const DeepCollectionEquality().hash(_points));
 
   @JsonKey(ignore: true)
   @override
@@ -223,6 +258,8 @@ abstract class _RouteModel implements RouteModel {
       final String? name,
       final String? img,
       final String? description,
+      final double? rating,
+      final double? amoungtRating,
       final List<PointModel>? points}) = _$RouteModelImpl;
 
   factory _RouteModel.fromJson(Map<String, dynamic> json) =
@@ -236,6 +273,10 @@ abstract class _RouteModel implements RouteModel {
   String? get img;
   @override
   String? get description;
+  @override
+  double? get rating;
+  @override
+  double? get amoungtRating;
   @override
   List<PointModel>? get points;
   @override
