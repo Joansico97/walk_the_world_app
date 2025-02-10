@@ -1,23 +1,16 @@
-# Walk The World
+# walk_the_world_app
 
-_Esta es una aplicación desarrollada en Flutter con el fin de materializar un compañero de viajes para los usuarios_
+A new Flutter project.
 
-### Prerequisites 📋
+## Getting Started
 
-_Este proyecto ha sido desarrollado en la version 3.16.0_
+This project is a starting point for a Flutter application.
 
-### Installing 🔧
+A few resources to get you started if this is your first Flutter project:
 
-_1) Descarga el proyecto desde el repositorio_
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-_2) Localiza la carpeta donde fue descargado el repositorio e importala dentro del editor de código_
-
-_3) Si el editor de código que utilizas es visual studio code, abre la terminal del editor y corre el comando flutter pub get_
-
-_4) Si el editor de código que utilizas no es visual studio code, abre una ventana de terminal, navega hasta la carpeta del proyecto y corre el comando make clean_
-
-_5) Utiliza los comandos descritos en el archivo make file para agilizar los procedimientos_
-
-## Authors ✒️
-
-- **Jorge Antonio Silva** - _Desarrollo princiapal_ - [Joansico97](https://github.com/Joansico97)
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

@@ -1,41 +1,58 @@
-part of 'router_config.dart';
+part of 'router.dart';
 
-Widget _homeHandler(BuildContext context, GoRouterState state) {
-  return const HomePage();
-}
-
-Widget _loginHandler(BuildContext context, GoRouterState state) {
-  return const LoginPage();
-}
-
-Widget _registerhHandler(BuildContext context, GoRouterState state) {
-  return const RegisterPage();
-}
-
-Widget _cityDetailsHandler(BuildContext context, GoRouterState state) {
-  final data = state.extra as Map<String, dynamic>;
-  return CityDetailsPage(
-    city: data['city'],
+Page<Widget> _homePageHandler(BuildContext context, GoRouterState state) {
+  return NoTransitionPage(
+    child: BlocProvider(
+      create: (_) => injection.di<HomeBloc>(),
+      child: const HomePage(),
+    ),
   );
 }
 
-Widget _cityHandler(BuildContext context, GoRouterState state) {
-  final data = state.extra as Map<String, dynamic>;
-  return CityPage(
-    city: data['city'],
-  );
-}
+// Page<Widget> _onBoardingPageHandler(BuildContext context, GoRouterState state) {
+//   return CustomTransitionPage(
+//     key: state.pageKey,
+//     child: BlocProvider(
+//       create: (_) => injection.di<OnBoardingBloc>(),
+//       child: const OnBoardingPage(),
+//     ),
+//     transitionDuration: Duration(milliseconds: 500),
+//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//       const begin = Offset(1.0, 0.0);
+//       const end = Offset.zero;
+//       const curve = Curves.easeInOut;
 
-Widget _routeDetailsHandler(BuildContext context, GoRouterState state) {
-  final data = state.extra as Map<String, dynamic>;
-  return RouteDetailsPage(
-    route: data['route'],
-  );
-}
+//       var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+//       var offsetAnimation = animation.drive(tween);
 
-Widget _restaurantDetailsHandler(BuildContext context, GoRouterState state) {
-  final data = state.extra as Map<String, dynamic>;
-  return RestaurantDetailsPage(
-    restaurant: data['restaurant'],
-  );
-}
+//       return SlideTransition(position: offsetAnimation, child: child);
+//     },
+//   );
+// }
+
+// Page<Widget> _loginPageHandler(BuildContext context, GoRouterState state) {
+//   return NoTransitionPage(
+//     child: BlocProvider(
+//       create: (_) => LoginBloc(),
+//       child: const LoginPage(),
+//     ),
+//   );
+// }
+
+// Page<Widget> _registerPageHandler(BuildContext context, GoRouterState state) {
+//   return NoTransitionPage(
+//     child: BlocProvider(
+//       create: (_) => RegisterBloc(),
+//       child: const RegisterPage(),
+//     ),
+//   );
+// }
+
+// Page<Widget> _splashPageHandler(BuildContext context, GoRouterState state) {
+//   return NoTransitionPage(
+//     child: BlocProvider(
+//       create: (_) => injection.di<SplashBloc>(),
+//       child: const SplashPage(),
+//     ),
+//   );
+// }

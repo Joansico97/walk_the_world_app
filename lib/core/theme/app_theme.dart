@@ -1,21 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:wtw_app/gen/fonts.gen.dart';
 
-const seedColor = Color(0xFF264653);
+import 'app_colors.dart';
 
 class AppTheme {
-  final bool isDarkmode;
-
-  AppTheme({required this.isDarkmode});
+  AppTheme();
 
   ThemeData getTheme() => ThemeData(
-        fontFamily: FontFamily.lato,
+        colorScheme: _colorScheme,
         useMaterial3: true,
-        scaffoldBackgroundColor: isDarkmode ? Colors.black : Colors.white,
-        colorSchemeSeed: seedColor,
-        brightness: isDarkmode ? Brightness.dark : Brightness.light,
+        fontFamily: 'AvenirNext',
+        scaffoldBackgroundColor: AppColors.secondary,
+        brightness: Brightness.light,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
         focusColor: Colors.transparent,
+        dividerTheme: const DividerThemeData(
+          color: Colors.transparent,
+        ),
       );
+}
+
+ColorScheme get _colorScheme {
+  return ColorScheme.light(
+    primary: AppColors.primary,
+    secondary: AppColors.secondary,
+    tertiary: AppColors.tertiary,
+    surface: AppColors.surface,
+    onPrimary: AppColors.onPrimary,
+    onSecondary: AppColors.onSecondary,
+    onSurface: AppColors.background,
+    shadow: AppColors.shadow,
+    error: AppColors.error,
+  );
 }

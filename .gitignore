@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -42,9 +44,13 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-#Envied
-*.env
-env.g.dart
-
-#Generated
+# Generated files
+gen
 *.g.dart
+*.freezed.dart
+
+# Makefile
+Makefile
+
+# Env
+.env
