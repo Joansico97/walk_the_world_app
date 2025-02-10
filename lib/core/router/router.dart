@@ -21,6 +21,11 @@ class CustomRouter {
         pageBuilder: _homePageHandler,
         parentNavigatorKey: rootNavigatorKey,
       ),
+      GoRoute(
+        path: RoutesNames.onBoarding,
+        pageBuilder: _onBoardingPageHandler,
+        parentNavigatorKey: rootNavigatorKey,
+      ),
     ],
   );
 

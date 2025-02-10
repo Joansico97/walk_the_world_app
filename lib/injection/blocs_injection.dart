@@ -7,5 +7,8 @@ void _initBlocsInjection() {
     )
     ..registerFactory(
       () => HomeBloc(),
+    )
+    ..registerFactory(
+      () => OnBoardingBloc(),
     );
 }

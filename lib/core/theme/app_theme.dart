@@ -26,10 +26,12 @@ ColorScheme get _colorScheme {
     secondary: AppColors.secondary,
     tertiary: AppColors.tertiary,
     surface: AppColors.surface,
+    onSurface: AppColors.onSurface,
     onPrimary: AppColors.onPrimary,
     onSecondary: AppColors.onSecondary,
-    onSurface: AppColors.background,
-    shadow: AppColors.shadow,
+    shadow: AppColors.grey,
     error: AppColors.error,
+    scrim: AppColors.aprovacion,
+    onPrimaryFixed: AppColors.typography,
   );
 }

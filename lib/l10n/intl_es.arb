@@ -1,1 +1,10 @@
-{}
+{
+    "@@locale": "es",
+    "comming_soon": "Próximamente",
+    "onboarding_title_one": "Sin intermediarios",
+    "onboarding_title_two": "Sin complicaciones",
+    "onboarding_title_three": "Seguro y confiable",
+    "onboarding_body_one": "Encuentra todo lo que necesitas para que tu evento sea memorable colaborando con talentos, recursos, localidades y más.",
+    "onboarding_body_two": "Con solo unos pasos encuentra a tu artista favorito, verifica su disponibilidad y garantiza el mejor entretenimiento para tu evento.",
+    "onboarding_body_three": "Ofrecemos un entorno seguro conectando con los recursos disfrutando de una experiencia sin preocupaciones."
+}
