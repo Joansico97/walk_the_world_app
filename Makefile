@@ -3,28 +3,20 @@ clean:
 	flutter clean
 	@echo "╠ Get dependencies..."
 	flutter pub get
+	@echo "🟢 Finished clean"
 
 gen:
 	@echo "╠ Running generator..."
-	flutter packages pub run build_runner build --delete-conflicting-outputs
+	dart run build_runner build --delete-conflicting-outputs
+	@echo "🟢 Finished gen"
 
 gen_l10n:
 	@echo "╠ Generating translations..."
-	flutter pub run intl_utils:generate
+	dart run intl_utils:generate
+	@echo "🟢 Finished gen translations"
 
 fix_gen:
 	@echo "╠ Fixing gen..."
 	mkdir ./.dart_tool/flutter_gen
 	echo "version: 1.0.0" > ./.dart_tool/flutter_gen/pubspec.yaml
-
-fix:
-	@echo "╠ Applying fix..."
-	dart fix
-
-run:
-	@echo "╠ Running..."
-	flutter run --release
-
-run_test:
-	@echo "╠ Running testing..."
-	flutter test test/app_test.dart
+	@echo "🟢 Finished Fixing gen"
