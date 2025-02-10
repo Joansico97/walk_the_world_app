@@ -54,3 +54,5 @@ Makefile
 
 # Env
 .env
+
+.vscode

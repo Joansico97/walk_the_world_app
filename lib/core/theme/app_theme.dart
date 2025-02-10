@@ -8,8 +8,8 @@ class AppTheme {
   ThemeData getTheme() => ThemeData(
         colorScheme: _colorScheme,
         useMaterial3: true,
-        fontFamily: 'AvenirNext',
-        scaffoldBackgroundColor: AppColors.secondary,
+        fontFamily: 'Lato',
+        scaffoldBackgroundColor: Colors.white,
         brightness: Brightness.light,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
@@ -33,5 +33,6 @@ ColorScheme get _colorScheme {
     error: AppColors.error,
     scrim: AppColors.aprovacion,
     onPrimaryFixed: AppColors.typography,
+    onPrimaryContainer: AppColors.darkWhite,
   );
 }
